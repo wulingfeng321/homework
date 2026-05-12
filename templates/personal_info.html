@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block title %}个人信息 - 个人主页{% endblock %}
+
+{% block content %}
+<section class="info-section">
+    <h2>个人信息</h2>
+    <div class="info-card">
+        <table class="info-table">
+            <tr>
+                <th>姓名</th>
+                <td>赫晨皓</td>
+            </tr>
+            <tr>
+                <th>学号</th>
+                <td>23211203</td>
+            </tr>
+            <tr>
+                <th>班级</th>
+                <td>自动化2301班</td>
+            </tr>
+        </table>
+    </div>
+    <a href="{{ url_for('index') }}" class="btn btn-back">返回首页</a>
+</section>
+{% endblock %}

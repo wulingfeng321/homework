@@ -1,0 +1,60 @@
+{% extends "base.html" %}
+{% block title %}桥牌 | 个人主页{% endblock %}
+{% block extra_head %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+{% endblock %}
+{% block content %}
+<section class="game-section">
+
+  <div class="bridge-header">
+    <div>
+      <h2>桥牌</h2>
+    </div>
+    <div class="actions">
+      <button id="bridge-new-game" class="btn btn-primary">新局</button>
+    </div>
+  </div>
+
+  <p class="status" id="bridge-message">加载中...</p>
+
+  <div class="scoreboard">
+    <div class="score-item">南北得墩：<strong id="score-ns">0</strong></div>
+    <div class="score-item">东西得墩：<strong id="score-ew">0</strong></div>
+    <div class="score-item">当前墩数：<strong id="trick-number">1</strong></div>
+  </div>
+
+  <div class="bridge-layout">
+    <div class="bridge-seat north">
+      <h3>North</h3>
+      <div id="north-hand" class="card-row compact"></div>
+    </div>
+    <div class="bridge-seat west">
+      <h3>West</h3>
+      <div id="west-hand" class="card-row compact"></div>
+    </div>
+    <div class="bridge-center">
+      <div class="center-label">当前墩</div>
+      <div class="trick-box" id="current-trick"></div>
+    </div>
+    <div class="bridge-seat east">
+      <h3>East</h3>
+      <div id="east-hand" class="card-row compact"></div>
+    </div>
+    <div class="bridge-seat south">
+      <h3>South（你）</h3>
+      <div id="south-hand" class="card-row playable"></div>
+    </div>
+  </div>
+
+  <p class="hint">你的牌必须跟花色出牌；若无同花色，则可任意出牌。其余三家由系统自动完成。</p>
+
+  <div class="back-row">
+    <a href="{{ url_for('index') }}" class="btn btn-back">返回首页</a>
+  </div>
+
+</section>
+{% endblock %}
+{% block extra_scripts %}
+<script src="{{ url_for('static', filename='js/shared.js') }}"></script>
+<script src="{{ url_for('static', filename='js/bridge.js') }}"></script>
+{% endblock %}

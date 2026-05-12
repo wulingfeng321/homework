@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>21点 - 个人主页</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1><a href="{{ url_for('index') }}" class="site-title">个人主页</a></h1>
+        </header>
+
+        <main>
+            <section class="game-section">
+                <h2>21点 — 欧式 Blackjack</h2>
+
+                <div class="game-controls">
+                    <button id="btn-new-game" class="btn btn-primary">开始新游戏</button>
+                    <button id="btn-hit" class="btn btn-game" disabled>要牌 (Hit)</button>
+                    <button id="btn-stand" class="btn btn-game" disabled>停牌 (Stand)</button>
+                </div>
+
+                <div class="game-area">
+                    <div class="player-area" id="dealer-area">
+                        <h3>庄家 <span id="dealer-score" class="score"></span></h3>
+                        <div id="dealer-cards" class="cards-row"></div>
+                    </div>
+
+                    <div class="divider"></div>
+
+                    <div class="player-area" id="player-area">
+                        <h3>玩家 <span id="player-score" class="score"></span></h3>
+                        <div id="player-cards" class="cards-row"></div>
+                    </div>
+                </div>
+
+                <div id="game-result" class="game-result"></div>
+
+                <a href="{{ url_for('index') }}" class="btn btn-back">返回首页</a>
+            </section>
+        </main>
+
+        <footer>
+            <a href="https://beian.miit.gov.cn/" target="_blank" rel="noopener noreferrer">
+                京ICP备2026024876号
+            </a>
+        </footer>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/blackjack.js') }}"></script>
+</body>
+</html>

@@ -1,0 +1,13 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(pip install *)",
+      "Bash(curl -s http://localhost:8080)",
+      "Bash(curl -s http://localhost:8080/blackjack)",
+      "Bash(python *)",
+      "Bash(curl -s http://localhost:8080/bridge)",
+      "Bash(curl -s http://localhost:8080/api/bridge/state)",
+      "Bash(python3 -c \"import sys,json; d=json.load\\(sys.stdin\\); print\\('hands:', list\\(d['hands'].keys\\(\\)\\), '| scores:', d['scores'], '| msg:', d['message'][:40]\\)\")"
+    ]
+  }
+}

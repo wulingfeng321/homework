@@ -1,0 +1,619 @@
+/* ===== 基础样式 ===== */
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans SC", sans-serif;
+    background: #f5f5f5;
+    color: #333;
+    min-height: 100vh;
+}
+
+.container {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 20px;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* ===== 页头 ===== */
+header {
+    text-align: center;
+    padding: 30px 0 20px;
+}
+
+.site-title {
+    font-size: 2rem;
+    color: #2c3e50;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.site-title:hover {
+    color: #2980b9;
+}
+
+/* ===== 主体 ===== */
+main {
+    flex: 1;
+    padding: 20px 0;
+}
+
+/* ===== 页脚（备案号） ===== */
+footer {
+    text-align: center;
+    padding: 20px 0;
+    border-top: 1px solid #ddd;
+    margin-top: auto;
+}
+
+footer a {
+    color: #999;
+    text-decoration: none;
+    font-size: 0.85rem;
+    transition: color 0.3s;
+}
+
+footer a:hover {
+    color: #2980b9;
+}
+
+/* ===== 欢迎页 ===== */
+.welcome {
+    text-align: center;
+    padding: 40px 20px;
+}
+
+.welcome h2 {
+    font-size: 2rem;
+    margin-bottom: 16px;
+    color: #2c3e50;
+}
+
+.welcome-text {
+    font-size: 1.1rem;
+    color: #666;
+    line-height: 1.8;
+}
+
+/* ===== 入口卡片 ===== */
+.entries {
+    display: flex;
+    gap: 32px;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding: 20px 0;
+}
+
+.entry-card {
+    display: block;
+    background: #fff;
+    border: 1px solid #e0e0e0;
+    border-radius: 12px;
+    padding: 40px 36px;
+    text-align: center;
+    width: 280px;
+    text-decoration: none;
+    color: inherit;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.entry-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.12);
+}
+
+.card-icon {
+    font-size: 3.5rem;
+    margin-bottom: 16px;
+}
+
+.entry-card h3 {
+    font-size: 1.4rem;
+    margin-bottom: 10px;
+    color: #2c3e50;
+}
+
+.entry-card p {
+    font-size: 0.95rem;
+    color: #888;
+    margin-bottom: 24px;
+}
+
+.entry-card .btn {
+    display: inline-block;
+    padding: 10px 36px;
+    background: #2980b9;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    font-size: 1rem;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background 0.3s, transform 0.2s;
+}
+
+.entry-card .btn:hover {
+    background: #3498db;
+    transform: translateY(-1px);
+}
+
+/* ===== 按钮 ===== */
+.btn {
+    display: inline-block;
+    padding: 10px 28px;
+    border: none;
+    border-radius: 6px;
+    font-size: 1rem;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background 0.3s, transform 0.2s;
+}
+
+.btn:hover {
+    transform: translateY(-1px);
+}
+
+.btn:active {
+    transform: translateY(0);
+}
+
+.btn-primary {
+    background: #2980b9;
+    color: #fff;
+    font-weight: 600;
+}
+
+.btn-primary:hover {
+    background: #3498db;
+}
+
+.btn-back {
+    background: #ecf0f1;
+    color: #555;
+    margin-top: 20px;
+}
+
+.btn-back:hover {
+    background: #dfe4e6;
+}
+
+.btn-game {
+    background: #27ae60;
+    color: #fff;
+    font-weight: 600;
+}
+
+.btn-game:hover {
+    background: #2ecc71;
+}
+
+.btn-game:disabled {
+    background: #bdc3c7;
+    color: #95a5a6;
+    cursor: not-allowed;
+}
+
+.btn-bid {
+    background: #2980b9;
+    color: #fff;
+    margin: 4px;
+    padding: 8px 16px;
+    font-size: 0.9rem;
+}
+
+.btn-bid:hover {
+    background: #3498db;
+}
+
+.btn-pass {
+    background: #95a5a6;
+    color: #fff;
+}
+
+.btn-pass:hover {
+    background: #7f8c8d;
+}
+
+/* ===== 个人信息 ===== */
+.info-section {
+    text-align: center;
+    padding: 30px 20px;
+}
+
+.info-section h2 {
+    font-size: 1.8rem;
+    color: #2c3e50;
+    margin-bottom: 30px;
+}
+
+.info-card {
+    background: #fff;
+    border: 1px solid #e0e0e0;
+    border-radius: 12px;
+    padding: 30px;
+    max-width: 400px;
+    margin: 0 auto;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+}
+
+.info-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.info-table th {
+    text-align: right;
+    padding: 12px 16px;
+    color: #2980b9;
+    font-weight: 600;
+    width: 30%;
+}
+
+.info-table td {
+    text-align: left;
+    padding: 12px 16px;
+    color: #333;
+}
+
+/* ===== 游戏区域通用 ===== */
+.game-section {
+    text-align: center;
+    padding: 20px;
+}
+
+.game-section h2 {
+    font-size: 1.6rem;
+    color: #2c3e50;
+    margin-bottom: 20px;
+}
+
+.game-controls {
+    margin-bottom: 24px;
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.game-area {
+    background: #fff;
+    border: 1px solid #e0e0e0;
+    border-radius: 12px;
+    padding: 24px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+}
+
+.player-area {
+    padding: 12px 0;
+}
+
+.player-area h3 {
+    font-size: 1.1rem;
+    color: #555;
+    margin-bottom: 12px;
+}
+
+.score {
+    color: #2980b9;
+    font-weight: 700;
+}
+
+.cards-row {
+    display: flex;
+    gap: 8px;
+    justify-content: center;
+    flex-wrap: wrap;
+    min-height: 100px;
+    align-items: center;
+}
+
+/* ===== 纸牌样式 ===== */
+.card {
+    width: 70px;
+    height: 100px;
+    background: #fff;
+    color: #1a1a2e;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 1.2rem;
+    box-shadow: 1px 1px 6px rgba(0, 0, 0, 0.12);
+    position: relative;
+    transition: transform 0.2s;
+}
+
+.card:hover {
+    transform: translateY(-4px);
+}
+
+.card.red {
+    color: #c0392b;
+}
+
+.card.back {
+    background: linear-gradient(135deg, #2980b9, #3498db);
+    color: transparent;
+}
+
+.card.back::after {
+    content: "🂠";
+    font-size: 2rem;
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.card .rank {
+    font-size: 1.4rem;
+    line-height: 1;
+}
+
+.card .suit {
+    font-size: 1.6rem;
+    line-height: 1;
+}
+
+/* 玩家手牌可选择 */
+#your-cards .card {
+    cursor: pointer;
+    border: 2px solid #ddd;
+}
+
+#your-cards .card:hover {
+    border-color: #2980b9;
+}
+
+#your-cards .card.played {
+    opacity: 0.4;
+    cursor: not-allowed;
+    pointer-events: none;
+}
+
+/* ===== 游戏结果 ===== */
+.game-result {
+    font-size: 1.3rem;
+    font-weight: 700;
+    padding: 16px;
+    min-height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.game-result.win {
+    color: #27ae60;
+}
+
+.game-result.lose {
+    color: #e74c3c;
+}
+
+.game-result.push {
+    color: #e67e22;
+}
+
+.divider {
+    border-top: 1px solid #eee;
+    margin: 20px 0;
+}
+
+/* ===== 桥牌网格牌桌 ===== */
+.bridge-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 14px;
+    flex-wrap: wrap;
+    margin-bottom: 16px;
+}
+
+.bridge-header h2 {
+    margin-bottom: 0;
+}
+
+.status, .hint {
+    color: #888;
+    line-height: 1.7;
+    margin-bottom: 12px;
+}
+
+.back-row {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.scoreboard {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-bottom: 16px;
+}
+
+.score-item {
+    color: #555;
+    font-size: 0.95rem;
+}
+
+.score-item strong {
+    color: #2980b9;
+}
+
+.bridge-layout {
+    display: grid;
+    grid-template-columns: 1fr minmax(320px, 1.2fr) 1fr;
+    grid-template-rows: auto minmax(220px, auto) auto;
+    grid-template-areas:
+        ". north ."
+        "west center east"
+        ". south .";
+    gap: 18px;
+    margin: 18px 0;
+    align-items: stretch;
+}
+
+.bridge-seat, .bridge-center {
+    border-radius: 16px;
+    background: #fff;
+    border: 1px solid #e8e8e8;
+    padding: 16px;
+    min-height: 120px;
+    box-shadow: 0 1px 8px rgba(0, 0, 0, 0.04);
+}
+
+.bridge-seat h3 {
+    font-size: 1rem;
+    color: #2c3e50;
+    margin: 0 0 10px;
+}
+
+.north { grid-area: north; }
+.west  { grid-area: west;  }
+.east  { grid-area: east;  }
+.south { grid-area: south; }
+
+.bridge-center {
+    grid-area: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 14px;
+    min-height: 260px;
+}
+
+.center-label {
+    font-weight: 700;
+    color: #2980b9;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    font-size: 0.85rem;
+}
+
+.trick-box {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(80px, 1fr));
+    gap: 12px;
+    width: 100%;
+}
+
+.trick-item {
+    min-height: 64px;
+    border-radius: 12px;
+    background: #f0f6ff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.trick-item strong {
+    color: #555;
+    font-size: 0.8rem;
+}
+
+.trick-item span {
+    font-weight: 700;
+    font-size: 1rem;
+    color: #2c3e50;
+}
+
+/* 牌面样式（桥牌用） */
+.playing-card {
+    width: 60px;
+    min-height: 82px;
+    border-radius: 12px;
+    background: linear-gradient(180deg, #ffffff, #f0f5ff);
+    color: #1a1a2e;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 0.95rem;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
+    border: 1px solid #e0e0e0;
+    transition: transform 0.2s;
+}
+
+.playing-card.back {
+    background: linear-gradient(180deg, #dbeafe, #bfdbfe);
+    color: #1d4ed8;
+    font-size: 0.75rem;
+}
+
+.compact .playing-card {
+    width: 50px;
+    min-height: 68px;
+    font-size: 0.85rem;
+}
+
+.card-row {
+    display: flex;
+    gap: 6px;
+    flex-wrap: wrap;
+    min-height: 72px;
+    margin-top: 6px;
+}
+
+.playable .playing-card {
+    cursor: pointer;
+}
+
+.playable .playing-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 22px rgba(41, 128, 185, 0.2);
+    border-color: #2980b9;
+}
+
+/* ===== 响应式 ===== */
+@media (max-width: 768px) {
+    .entries {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .entry-card {
+        width: 100%;
+        max-width: 340px;
+    }
+
+    .bridge-layout {
+        grid-template-columns: 1fr;
+        grid-template-areas:
+            "north"
+            "west"
+            "center"
+            "east"
+            "south";
+    }
+
+    .playing-card {
+        width: 50px;
+        min-height: 68px;
+        font-size: 0.85rem;
+    }
+
+    .card {
+        width: 56px;
+        height: 80px;
+        font-size: 1rem;
+    }
+
+    .card .rank {
+        font-size: 1.1rem;
+    }
+
+    .card .suit {
+        font-size: 1.3rem;
+    }
+}

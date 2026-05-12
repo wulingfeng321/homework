@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% block title %}欢迎 - 个人主页{% endblock %}
+
+{% block content %}
+<section class="welcome">
+    <h2>欢迎来到我的个人主页</h2>
+    <p class="welcome-text">你好！欢迎访问我的网站，下面是我的个人信息和课程作业的展示。</p>
+</section>
+
+<section class="entries">
+    <a href="{{ url_for('personal_info') }}" class="entry-card">
+        <div class="card-icon">👤</div>
+        <h3>个人信息</h3>
+        <p>查看我的基本个人信息</p>
+        <span class="btn">进入</span>
+    </a>
+    <a href="{{ url_for('blackjack') }}" class="entry-card">
+        <div class="card-icon">🃏</div>
+        <h3>21点</h3>
+        <p>欧式 Blackjack 纸牌游戏</p>
+        <span class="btn">来几局!</span>
+    </a>
+    <a href="{{ url_for('bridge') }}" class="entry-card disabled" onclick="event.preventDefault()" aria-disabled="true" tabindex="-1">
+        <div class="card-icon">🌉</div>
+        <h3>桥牌</h3>
+        <p>经典桥牌纸牌游戏</p>
+        <span class="btn">正在施工🚧</span>
+    </a>
+</section>
+{% endblock %}
