@@ -3,29 +3,74 @@
 {% block title %}欢迎 - 个人主页{% endblock %}
 
 {% block content %}
-<section class="welcome">
-    <h2>欢迎来到我的个人主页</h2>
-    <p class="welcome-text">你好！欢迎访问我的网站，下面是我的个人信息和课程作业的展示。</p>
-</section>
+<section class="home-page" aria-labelledby="home-title">
+    <div class="geometric-bg" aria-hidden="true">
+        <span class="geo geo-ring"></span>
+        <span class="geo geo-square"></span>
+        <span class="geo geo-line"></span>
+        <span class="geo geo-dot"></span>
+    </div>
 
-<section class="entries">
-    <a href="{{ url_for('personal_info') }}" class="entry-card">
-        <div class="card-icon">👤</div>
-        <h3>个人信息</h3>
-        <p>查看我的基本个人信息</p>
-        <span class="btn">进入</span>
-    </a>
-    <a href="{{ url_for('blackjack') }}" class="entry-card">
-        <div class="card-icon">🃏</div>
-        <h3>21点</h3>
-        <p>欧式 Blackjack 纸牌游戏</p>
-        <span class="btn">来几局!</span>
-    </a>
-    <a href="{{ url_for('bridge') }}" class="entry-card disabled" onclick="event.preventDefault()" aria-disabled="true" tabindex="-1">
-        <div class="card-icon">🌉</div>
-        <h3>桥牌</h3>
-        <p>经典桥牌纸牌游戏</p>
-        <span class="btn">正在施工🚧</span>
-    </a>
+    <aside class="vertical-clock" aria-label="当前时间">
+        <span class="clock-label">LOCAL TIME</span>
+        <span class="clock-time" id="home-clock">00:00:00</span>
+        <span class="clock-date" id="home-date">正在同步</span>
+    </aside>
+
+    <section class="welcome hero-panel">
+        <p class="eyebrow">Portfolio · Course Work · Games</p>
+        <h2 id="home-title">欢迎来到我的个人主页</h2>
+        <p class="welcome-text">你好！欢迎访问我的网站，这里集合了个人信息展示、课程作业与互动纸牌游戏。</p>
+        <div class="hero-actions" aria-label="主页快捷入口">
+            <a href="{{ url_for('personal_info') }}" class="btn btn-primary">了解我</a>
+            <a href="{{ url_for('blackjack') }}" class="btn btn-ghost">开始游戏</a>
+        </div>
+    </section>
+
+    <section class="entries" aria-label="子模块入口">
+        <a href="{{ url_for('personal_info') }}" class="entry-card">
+            <span class="card-number">01</span>
+            <div class="card-icon">👤</div>
+            <h3>个人信息</h3>
+            <p>查看我的基本个人信息</p>
+            <span class="btn">进入</span>
+        </a>
+        <a href="{{ url_for('blackjack') }}" class="entry-card featured-card">
+            <span class="card-number">02</span>
+            <div class="card-icon">🃏</div>
+            <h3>21点</h3>
+            <p>欧式 Blackjack 纸牌游戏</p>
+            <span class="btn">来几局!</span>
+        </a>
+        <a href="{{ url_for('bridge') }}" class="entry-card">
+            <span class="card-number">03</span>
+            <div class="card-icon">🌉</div>
+            <h3>桥牌</h3>
+            <p>经典桥牌纸牌游戏</p>
+            <span class="btn">进入</span>
+        </a>
+    </section>
 </section>
+{% endblock %}
+
+{% block extra_scripts %}
+<script>
+    (() => {
+        const clock = document.getElementById("home-clock");
+        const date = document.getElementById("home-date");
+        if (!clock || !date) return;
+
+        const pad = (value) => String(value).padStart(2, "0");
+        const weekDays = ["周日", "周一", "周二", "周三", "周四", "周五", "周六"];
+
+        const updateClock = () => {
+            const now = new Date();
+            clock.textContent = `${pad(now.getHours())}:${pad(now.getMinutes())}:${pad(now.getSeconds())}`;
+            date.textContent = `${now.getFullYear()}.${pad(now.getMonth() + 1)}.${pad(now.getDate())} ${weekDays[now.getDay()]}`;
+        };
+
+        updateClock();
+        window.setInterval(updateClock, 1000);
+    })();
+</script>
 {% endblock %}

@@ -7,15 +7,18 @@
 
 body {
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans SC", sans-serif;
-    background: #f5f5f5;
-    color: #333;
+    background:
+        radial-gradient(circle at 8% 12%, rgba(56, 189, 248, 0.18), transparent 28%),
+        radial-gradient(circle at 92% 8%, rgba(129, 140, 248, 0.18), transparent 30%),
+        linear-gradient(135deg, #eef7ff 0%, #f7f4ff 48%, #fffaf0 100%);
+    color: #1f2a44;
     min-height: 100vh;
 }
 
 .container {
-    max-width: 960px;
+    width: min(1180px, calc(100% - 40px));
     margin: 0 auto;
-    padding: 20px;
+    padding: 20px 0;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
@@ -24,18 +27,33 @@ body {
 /* ===== 页头 ===== */
 header {
     text-align: center;
-    padding: 30px 0 20px;
+    padding: 26px 0 18px;
 }
 
 .site-title {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
     font-size: 2rem;
-    color: #2c3e50;
+    color: #1f2a44;
     text-decoration: none;
-    transition: color 0.3s;
+    letter-spacing: 0.08em;
+    transition: color 0.3s, transform 0.3s;
+}
+
+.site-title::before,
+.site-title::after {
+    content: "";
+    width: 12px;
+    height: 12px;
+    border-radius: 4px;
+    background: linear-gradient(135deg, #38bdf8, #6366f1);
+    transform: rotate(45deg);
 }
 
 .site-title:hover {
-    color: #2980b9;
+    color: #2563eb;
+    transform: translateY(-1px);
 }
 
 /* ===== 主体 ===== */
@@ -47,99 +65,285 @@ main {
 /* ===== 页脚（备案号） ===== */
 footer {
     text-align: center;
-    padding: 20px 0;
-    border-top: 1px solid #ddd;
+    padding: 22px 0;
+    border-top: 1px solid rgba(148, 163, 184, 0.35);
     margin-top: auto;
 }
 
 footer a {
-    color: #999;
+    color: #64748b;
     text-decoration: none;
     font-size: 0.85rem;
     transition: color 0.3s;
 }
 
 footer a:hover {
-    color: #2980b9;
+    color: #2563eb;
 }
 
 /* ===== 欢迎页 ===== */
+.home-page {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+    min-height: 680px;
+    padding: 40px 28px 56px 170px;
+    border: 1px solid rgba(255, 255, 255, 0.7);
+    border-radius: 34px;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.88), rgba(238, 246, 255, 0.7));
+    box-shadow: 0 30px 80px rgba(59, 91, 152, 0.16);
+    backdrop-filter: blur(16px);
+}
+
+.geometric-bg,
+.geo {
+    position: absolute;
+    pointer-events: none;
+}
+
+.geometric-bg {
+    inset: 0;
+    z-index: -1;
+}
+
+.geo-ring {
+    width: 240px;
+    height: 240px;
+    right: -64px;
+    top: 44px;
+    border: 34px solid rgba(59, 130, 246, 0.12);
+    border-radius: 50%;
+}
+
+.geo-square {
+    width: 150px;
+    height: 150px;
+    right: 18%;
+    bottom: 72px;
+    border: 2px solid rgba(99, 102, 241, 0.24);
+    transform: rotate(18deg);
+}
+
+.geo-line {
+    width: 420px;
+    height: 2px;
+    left: 44%;
+    top: 22%;
+    background: linear-gradient(90deg, transparent, rgba(14, 165, 233, 0.28), transparent);
+    transform: rotate(-26deg);
+}
+
+.geo-dot {
+    width: 180px;
+    height: 180px;
+    left: 120px;
+    bottom: -54px;
+    background-image: radial-gradient(rgba(37, 99, 235, 0.28) 1.2px, transparent 1.2px);
+    background-size: 18px 18px;
+}
+
+.vertical-clock {
+    position: absolute;
+    left: 28px;
+    top: 42px;
+    bottom: 42px;
+    width: 112px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: column;
+    padding: 26px 14px;
+    border-radius: 30px;
+    color: #eaf6ff;
+    background: linear-gradient(180deg, #111827 0%, #1e3a8a 52%, #0f172a 100%);
+    box-shadow: 0 24px 60px rgba(15, 23, 42, 0.28);
+}
+
+.clock-label,
+.clock-date {
+    writing-mode: vertical-rl;
+    text-orientation: mixed;
+    letter-spacing: 0.18em;
+    color: rgba(234, 246, 255, 0.72);
+    font-size: 0.75rem;
+    text-transform: uppercase;
+}
+
+.clock-time {
+    writing-mode: vertical-rl;
+    text-orientation: upright;
+    font-family: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+    font-size: clamp(2.2rem, 5vw, 4.2rem);
+    font-weight: 800;
+    line-height: 0.9;
+    letter-spacing: -0.12em;
+    color: #ffffff;
+    text-shadow: 0 0 24px rgba(125, 211, 252, 0.78);
+}
+
 .welcome {
-    text-align: center;
-    padding: 40px 20px;
+    text-align: left;
+    padding: 56px 22px 40px;
+}
+
+.hero-panel {
+    max-width: 760px;
+}
+
+.eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 18px;
+    color: #2563eb;
+    font-size: 0.82rem;
+    font-weight: 800;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+}
+
+.eyebrow::before {
+    content: "";
+    width: 34px;
+    height: 2px;
+    background: linear-gradient(90deg, #38bdf8, #6366f1);
 }
 
 .welcome h2 {
-    font-size: 2rem;
-    margin-bottom: 16px;
-    color: #2c3e50;
+    font-size: clamp(2.4rem, 6vw, 5.2rem);
+    margin-bottom: 18px;
+    color: #172033;
+    line-height: 1.08;
+    letter-spacing: -0.06em;
 }
 
 .welcome-text {
-    font-size: 1.1rem;
-    color: #666;
-    line-height: 1.8;
+    max-width: 620px;
+    font-size: 1.12rem;
+    color: #526179;
+    line-height: 1.9;
+}
+
+.hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+    margin-top: 30px;
 }
 
 /* ===== 入口卡片 ===== */
 .entries {
-    display: flex;
-    gap: 32px;
-    justify-content: center;
-    flex-wrap: wrap;
-    padding: 20px 0;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 22px;
+    padding: 18px 0 0;
 }
 
 .entry-card {
+    position: relative;
     display: block;
-    background: #fff;
-    border: 1px solid #e0e0e0;
-    border-radius: 12px;
-    padding: 40px 36px;
-    text-align: center;
-    width: 280px;
+    min-height: 290px;
+    overflow: hidden;
+    background: rgba(255, 255, 255, 0.76);
+    border: 1px solid rgba(148, 163, 184, 0.24);
+    border-radius: 28px;
+    padding: 34px 30px;
+    text-align: left;
     text-decoration: none;
     color: inherit;
-    transition: transform 0.3s, box-shadow 0.3s;
+    transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s;
+}
+
+.entry-card::before {
+    content: "";
+    position: absolute;
+    width: 150px;
+    height: 150px;
+    right: -64px;
+    top: -64px;
+    border-radius: 44px;
+    background: linear-gradient(135deg, rgba(56, 189, 248, 0.28), rgba(99, 102, 241, 0.18));
+    transform: rotate(20deg);
+    transition: transform 0.3s;
 }
 
 .entry-card:hover {
-    transform: translateY(-6px);
-    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.12);
+    transform: translateY(-8px);
+    border-color: rgba(37, 99, 235, 0.36);
+    box-shadow: 0 22px 48px rgba(37, 99, 235, 0.16);
+}
+
+.entry-card:hover::before {
+    transform: rotate(34deg) scale(1.06);
+}
+
+.featured-card {
+    background: linear-gradient(160deg, rgba(255, 255, 255, 0.9), rgba(239, 246, 255, 0.86));
+    box-shadow: inset 0 0 0 1px rgba(59, 130, 246, 0.08);
+}
+
+.card-number {
+    position: absolute;
+    right: 24px;
+    bottom: 18px;
+    color: rgba(37, 99, 235, 0.1);
+    font-size: 4.8rem;
+    font-weight: 900;
+    letter-spacing: -0.08em;
 }
 
 .card-icon {
-    font-size: 3.5rem;
-    margin-bottom: 16px;
+    position: relative;
+    z-index: 1;
+    width: 74px;
+    height: 74px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 24px;
+    border-radius: 24px;
+    background: linear-gradient(135deg, rgba(219, 234, 254, 0.92), rgba(224, 231, 255, 0.92));
+    font-size: 2.7rem;
+    box-shadow: 0 14px 28px rgba(99, 102, 241, 0.12);
 }
 
 .entry-card h3 {
-    font-size: 1.4rem;
-    margin-bottom: 10px;
-    color: #2c3e50;
+    position: relative;
+    z-index: 1;
+    font-size: 1.55rem;
+    margin-bottom: 12px;
+    color: #172033;
 }
 
 .entry-card p {
-    font-size: 0.95rem;
-    color: #888;
-    margin-bottom: 24px;
+    position: relative;
+    z-index: 1;
+    min-height: 48px;
+    font-size: 0.98rem;
+    color: #64748b;
+    line-height: 1.7;
+    margin-bottom: 28px;
 }
 
 .entry-card .btn {
-    display: inline-block;
-    padding: 10px 36px;
-    background: #2980b9;
+    position: relative;
+    z-index: 1;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 28px;
+    background: #2563eb;
     color: #fff;
     border: none;
-    border-radius: 6px;
-    font-size: 1rem;
+    border-radius: 999px;
+    font-size: 0.98rem;
     cursor: pointer;
     text-decoration: none;
     transition: background 0.3s, transform 0.2s;
 }
 
 .entry-card .btn:hover {
-    background: #3498db;
+    background: #1d4ed8;
     transform: translateY(-1px);
 }
 
@@ -164,13 +368,25 @@ footer a:hover {
 }
 
 .btn-primary {
-    background: #2980b9;
+    background: linear-gradient(135deg, #2563eb, #4f46e5);
     color: #fff;
-    font-weight: 600;
+    font-weight: 700;
+    box-shadow: 0 12px 26px rgba(37, 99, 235, 0.24);
 }
 
 .btn-primary:hover {
-    background: #3498db;
+    background: linear-gradient(135deg, #1d4ed8, #4338ca);
+}
+
+.btn-ghost {
+    background: rgba(255, 255, 255, 0.72);
+    color: #2563eb;
+    border: 1px solid rgba(37, 99, 235, 0.2);
+    font-weight: 700;
+}
+
+.btn-ghost:hover {
+    background: #ffffff;
 }
 
 .btn-back {
@@ -576,15 +792,56 @@ footer a:hover {
 }
 
 /* ===== 响应式 ===== */
-@media (max-width: 768px) {
+@media (max-width: 920px) {
+    .home-page {
+        padding-left: 28px;
+        padding-top: 170px;
+    }
+
+    .vertical-clock {
+        left: 28px;
+        right: 28px;
+        top: 28px;
+        bottom: auto;
+        width: auto;
+        height: 112px;
+        flex-direction: row;
+    }
+
+    .clock-label,
+    .clock-date,
+    .clock-time {
+        writing-mode: horizontal-tb;
+        text-orientation: mixed;
+        letter-spacing: 0.08em;
+    }
+
+    .clock-time {
+        font-size: clamp(2rem, 8vw, 4rem);
+        letter-spacing: -0.05em;
+    }
+
     .entries {
-        flex-direction: column;
-        align-items: center;
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    .container {
+        width: min(100% - 24px, 1180px);
+    }
+
+    .home-page {
+        padding: 150px 16px 30px;
+        border-radius: 24px;
+    }
+
+    .welcome {
+        padding: 32px 4px 28px;
     }
 
     .entry-card {
-        width: 100%;
-        max-width: 340px;
+        min-height: 250px;
     }
 
     .bridge-layout {
