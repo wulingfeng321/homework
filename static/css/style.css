@@ -81,6 +81,20 @@ footer a:hover {
     color: #2563eb;
 }
 
+.footer-sep {
+    color: #cbd5e1;
+    margin: 0 10px;
+    font-size: 0.85rem;
+}
+
+.beian-icon {
+    display: inline-block;
+    vertical-align: -3px;
+    width: 16px;
+    height: 16px;
+    margin-right: 4px;
+}
+
 /* ===== 欢迎页 ===== */
 .home-page {
     position: relative;
